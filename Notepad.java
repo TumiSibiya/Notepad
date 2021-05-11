@@ -26,6 +26,10 @@ import javafx.event.EventHandler;
 import java.util.StringTokenizer;
 import javafx.scene.layout.Border;
 
+   /**
+     * @Tumi Sibiya
+     * @version 8
+     */
 public class Notepad extends Application{
 //pane
     private StackPane spane = new StackPane();
@@ -38,6 +42,9 @@ public class Notepad extends Application{
     //buttons
     Button wordCountButton = new Button("words");
 
+     /**
+     * @return void
+     */
     //Organise pane
     public void setupPane(){
    spane.setAlignment(Pos.CENTER);
@@ -54,9 +61,14 @@ public class Notepad extends Application{
         bpane.setBottom(hbox);
 
     }
+
     //Displayer class
     class Displayer{
-
+        
+     /**
+     * @param int
+     * @return void
+     */
         void displayNoWords(int totalWords){
             wordCountField.setText(String.valueOf(totalWords));
         }
@@ -67,11 +79,16 @@ public class Notepad extends Application{
         private int whiteSpaces;
         private String paragraphs;
         private int counter;
-
+   
+   
         public WordCounter(){
             this.whiteSpaces = 1;
             this.counter = 0;
-        }
+        } 
+            
+     /**
+     * @return int
+     */
         //count strngs
        public int countWords(){
 
@@ -111,11 +128,19 @@ public class Notepad extends Application{
 
         //button
             wordCountButton.setMinHeight(wordCountField.getMaxHeight());
+     
+            
+            /**@param ActionEvent
+            */
             wordCountButton.setOnAction((ActionEvent e)->{
                 WordCounter access = new WordCounter();
                 new Displayer().displayNoWords(access.countWords());
             });
     }
+     /** JavaFx UI entry point
+     * @param Stage
+     * @return void
+     */
     @Override
     public void start(Stage primaryStage){
         setupPane();
@@ -127,6 +152,11 @@ public class Notepad extends Application{
         primaryStage.show();
 
     }
+      /**
+      *Program entry point, classic java main method
+      *@param String
+     * @return void
+     */
     public static void main(String... args){
 
         Application.launch(args);
